@@ -14,7 +14,7 @@ namespace DelegatingHandlerSample_2.Controllers
             var sw = Stopwatch.StartNew();
 
             // 約1MBのダミーテキストを生成
-            var data = Enumerable.Range(0, 10000).Select(i => $"DataIndex_{i}: Some large text content... ");
+            var data = Enumerable.Range(0, 10000).Select(i => $"DataIndex_{i}: Some large text content... ").ToList();
 
             sw.Stop();
 

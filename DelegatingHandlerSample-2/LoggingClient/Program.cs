@@ -13,7 +13,8 @@ namespace LoggingClient
                 client.BaseAddress = new Uri("https://localhost:44372/"); // ポート番号を確認
 
                 Console.WriteLine("1. 通常リクエストを送信します...");
-                await client.GetAsync("api/get-data");
+                var response = await client.GetAsync("api/get-data");
+                var content = await response.Content.ReadAsStringAsync();
 
                 Console.WriteLine("2. 除外対象（ClientLog）を送信します...");
                 var logData = new { message = "Hello from C# Client", level = "Info" };

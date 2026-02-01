@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Extensions.Compression.Core.Compressors;
-using System.Web.Http;
-using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
+﻿using System.Web.Http;
 
 namespace DelegatingHandlerSample_2
 {
@@ -24,7 +22,7 @@ namespace DelegatingHandlerSample_2
             // 0番目：自作のログハンドラー
             // 1番目：圧縮ハンドラー
             config.MessageHandlers.Insert(0, new HttpRequestLogHandler());
-            config.MessageHandlers.Insert(1, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
+            //config.MessageHandlers.Insert(1, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
         }
     }
 }

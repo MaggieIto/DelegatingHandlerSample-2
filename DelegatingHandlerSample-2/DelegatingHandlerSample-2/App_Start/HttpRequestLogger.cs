@@ -26,7 +26,7 @@ namespace DelegatingHandlerSample_2
                 Method = request.Method.Method,
                 LocalPath = request.RequestUri.LocalPath,
                 Elapsed = elapsed,
-                Timestamp = DateTime.UtcNow,
+                Timestamp = DateTime.Now,
                 UserAgent = request.Headers.UserAgent?.ToString(),
                 StatusCode = response?.StatusCode != null ? (int)response.StatusCode : (int?)null,
                 IsSuccess = response?.IsSuccessStatusCode ?? false
