@@ -15,11 +15,8 @@ namespace LoggingClient
                 Console.WriteLine("1. 通常リクエストを送信します...");
                 var response = await client.GetAsync("api/get-data");
                 var content = await response.Content.ReadAsStringAsync();
-
-                Console.WriteLine("2. 除外対象（ClientLog）を送信します...");
-                var logData = new { message = "Hello from C# Client", level = "Info" };
-                await client.PostAsJsonAsync("api/common/clientLog", logData);
             }
+
             Console.WriteLine("送信完了。VSの出力ウィンドウを確認してください。");
             Console.ReadLine();
         }

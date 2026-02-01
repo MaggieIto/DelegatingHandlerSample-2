@@ -98,7 +98,6 @@
     <Compile Include="App_Start\HttpRequestLogHandler.cs" />
     <Compile Include="App_Start\LoggingAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ClientLogController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

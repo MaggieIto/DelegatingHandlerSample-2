@@ -32,12 +32,6 @@ namespace DelegatingHandlerSample_2
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
-            // 除外APIの場合は計測せずに後続処理へ
-            if (IsIgnoreApi(request))
-            {
-                return await base.SendAsync(request, cancellationToken);
-            }
-
             // 1. パイプラインに入る直前で計測開始
             var stopwatch = Stopwatch.StartNew();
 
@@ -56,25 +50,6 @@ namespace DelegatingHandlerSample_2
                 LogRequest(request, null, stopwatch.Elapsed);
                 throw;
             }
-        }
-
-        /// <summary>
-        /// 除外対象のAPIかどうかを判定
-        /// </summary>
-        /// <param name="request">HTTPリクエスト</param>
-        /// <returns>除外対象の場合true</returns>
-        private bool IsIgnoreApi(HttpRequestMessage request)
-        {
-            var method = request.Method.Method.ToUpper();
-            var localPath = request.RequestUri.LocalPath;
-
-            // /api/common/clientLog は除外
-            if (method == "POST" && localPath == "/api/common/clientLog")
-            {
-                return true;
-            }
-
-            return false;
         }
 
         /// <summary>
