@@ -19,7 +19,7 @@ namespace DelegatingHandlerSample_2.Controllers
             sw.Stop();
 
             // コントローラー内での処理時間を出力
-            Debug.WriteLine($"[Controller] Logic Time: {sw.ElapsedMilliseconds} ms");
+            Debug.WriteLine($"[Controller] Logic Time: {sw.Elapsed.TotalMilliseconds} ms");
 
             return Ok(data);
         }
